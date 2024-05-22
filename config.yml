@@ -1,0 +1,3 @@
+config:
+  credentials:
+    youtube_api_key: <API_KEY>
