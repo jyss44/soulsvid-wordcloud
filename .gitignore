@@ -236,4 +236,5 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 ## Project specific files
-config.yml
+client_secret_*.json
+data
