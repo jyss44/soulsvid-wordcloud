@@ -6,7 +6,7 @@ import pandas as pd
 from nltk.stem import PorterStemmer
 from tqdm import tqdm
 
-from count_words import freq_to_zipf_mod
+from yt_transcript_analyzer.count_words import freq_to_zipf_mod
 
 ps = PorterStemmer()
 
@@ -53,7 +53,7 @@ def collect_stems(words_df: pd.DataFrame, file_name: Union[str, bytes, os.PathLi
 
 if __name__ == '__main__':
     channel_name = 'tarnished_archaeologist'
-    channel_dir = Path('data') / channel_name
+    channel_dir = Path('../../data') / channel_name
 
     words_file = channel_dir / f'{channel_name}_words.json'
     stems_file = channel_dir / f'{channel_name}_stems.json'

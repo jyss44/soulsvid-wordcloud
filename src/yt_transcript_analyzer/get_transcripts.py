@@ -1,18 +1,11 @@
-# -*- coding: utf-8 -*-
 import argparse
 import json
-# Sample Python code for youtube.channels.list
-# See instructions for running these code samples locally:
-# https://developers.google.com/explorer-help/code-samples#python
-
 import os
 from pathlib import Path
 from typing import Union
-
 import google_auth_oauthlib.flow
 import googleapiclient.discovery
 import googleapiclient.errors
-
 from youtube_transcript_api import YouTubeTranscriptApi
 
 scopes = ["https://www.googleapis.com/auth/youtube.readonly"]

@@ -10,17 +10,24 @@ from get_transcripts import get_youtube_api, get_videos_from_channel, get_transc
 import time
 from datetime import timedelta
 
-from stem_words import collect_stems
+from yt_transcript_analyzer.stem_words import collect_stems
 
 Channel = namedtuple('Channel', ['id', 'name'])
 
 
-def get_argparser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(prog="YouTubeTranscript")
+def get_argparser(parser: argparse.ArgumentParser = None) -> argparse.ArgumentParser:
+    """
+    Gets argparser for transcript analyzer
+    :param parser: parser
+    :return: parser with necessary arguments
+    """
+    if not parser:
+        parser = argparse.ArgumentParser(prog="YouTubeTranscriptAnalyzer")
+
     parser.add_argument("channels", help="csv file of channel IDs and names", type=lambda p: Path(p).absolute())
     parser.add_argument("key", help="Google API key", type=lambda p: Path(p).absolute())
     parser.add_argument("-m", "--max-phrase-len", help="maximum phrase length", type=int, default=4)
-    parser.add_argument("-o", "--out", help="Sets directory for output files", default=Path('./data').absolute(), type=lambda p: Path(p).absolute())
+    parser.add_argument("-o", "--out", help="Sets directory for output files", default=Path('../../data').absolute(), type=lambda p: Path(p).absolute())
     parser.add_argument('-r', '--refresh', help='Redownloads transcripts', action='store_true')
 
     return parser

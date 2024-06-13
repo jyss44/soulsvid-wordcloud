@@ -13,7 +13,7 @@ from nltk.corpus import stopwords
 import pandas as pd
 from wordfreq import freq_to_zipf
 
-from get_transcripts import process_transcript
+from yt_transcript_analyzer.get_transcripts import process_transcript
 from tqdm import tqdm
 
 STOPWORDS = stopwords.words('english')
@@ -91,7 +91,7 @@ def aggregate_phrases(dataframes: list[pd.DataFrame], phrases_file=None) -> pd.D
 
 def main():
     channel_name = 'tarnished_archaeologist'
-    channel_dir = Path('data') / channel_name
+    channel_dir = Path('../../data') / channel_name
     transcript_file = channel_dir / f'{channel_name}_transcripts.json'
     phrases_file = channel_dir / f'{channel_name}_phrases.json'
 

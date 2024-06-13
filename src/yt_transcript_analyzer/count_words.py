@@ -5,13 +5,13 @@ from pathlib import Path
 from typing import Union
 
 import nltk
+import numpy as np
 import pandas as pd
 from nltk.corpus import stopwords
-
-from get_transcripts import process_transcript
-from wordfreq import tokenize, get_frequency_dict, freq_to_zipf
-import numpy as np
 from tqdm import tqdm
+from wordfreq import tokenize, get_frequency_dict, freq_to_zipf
+
+from yt_transcript_analyzer.get_transcripts import process_transcript
 
 STOPWORDS = stopwords.words('english')
 WORD_FREQS = get_frequency_dict('en', wordlist='large')
@@ -77,7 +77,7 @@ def count_words(transcripts: list[list[str]], word_file: Union[str, bytes, os.Pa
 
 def main():
     channel_name = 'tarnished_archaeologist'
-    channel_dir = Path('data') / channel_name
+    channel_dir = Path('../../data') / channel_name
     transcript_file = channel_dir / f'{channel_name}_transcripts.json'
     word_file = channel_dir / f'{channel_name}_words.json'
 
